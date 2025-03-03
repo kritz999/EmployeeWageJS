@@ -37,97 +37,44 @@ class Contact {
     validateEmail = email => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
 }
 
-class AddressBook {
-    constructor(name) {
-        this.name = name;
-        this.contacts = [];
+class Employee {
+    constructor(id, salary, gender, date) {
+        try {
+            if (!this.validateId(id)) {
+                throw new Error("Employee ID must be a non-zero positive number.");
+            }
+            if (!this.validateSalary(salary)) {
+                throw new Error("Salary must be a non-zero positive number.");
+            }
+            if (!this.validateGender(gender)) {
+                throw new Error("Gender must be 'M' or 'F'.");
+            }
+            if (!this.validateDate(date)) {
+                throw new Error("Date cannot be in the future.");
+            }
+            this.id = id;
+            this.salary = salary;
+            this.gender = gender;
+            this.date = date;
+        } catch (error) {
+            console.error(error.message);
+        }
     }
 
-    addContact = contact => {
-        if (this.contacts.some(c => c.firstName === contact.firstName && c.lastName === contact.lastName)) {
-            throw new Error("Contact with this name already exists!");
-        }
-        this.contacts.push(contact);
+    validateId = id => /^\d+$/.test(id) && id > 0;
+    validateSalary = salary => /^\d+$/.test(salary) && salary > 0;
+    validateGender = gender => /^[MF]$/.test(gender);
+    validateDate = date => {
+        let inputDate = new Date(date);
+        let today = new Date();
+        return inputDate <= today;
     };
-
-    removeContactByName = (firstName, lastName) => {
-        this.contacts = this.contacts.filter(contact => contact.firstName !== firstName || contact.lastName !== lastName);
-    };
-
-    updateContactByName = (firstName, lastName, updatedDetails) => {
-        let contact = this.contacts.find(contact => contact.firstName === firstName && contact.lastName === lastName);
-        if (!contact) throw new Error("Contact not found!");
-        Object.assign(contact, updatedDetails);
-    };
-
-    searchContactsByCity = city => this.contacts.filter(contact => contact.city === city);
-    searchContactsByState = state => this.contacts.filter(contact => contact.state === state);
-    viewPersonsByCity = city => this.searchContactsByCity(city).map(contact => contact.toString());
-    viewPersonsByState = state => this.searchContactsByState(state).map(contact => contact.toString());
-    getContactCount = () => this.contacts.length;
-    getContactCountByCity = city => this.searchContactsByCity(city).length;
-    getContactCountByState = state => this.searchContactsByState(state).length;
-    
-    sortContactsByName = () => this.contacts.sort((a, b) => a.firstName.localeCompare(b.firstName));
-    sortContactsByCity = () => this.contacts.sort((a, b) => a.city.localeCompare(b.city));
-    sortContactsByState = () => this.contacts.sort((a, b) => a.state.localeCompare(b.state));
-    sortContactsByZip = () => this.contacts.sort((a, b) => a.zip.localeCompare(b.zip));
 }
 
-class AddressBookSystem {
-    constructor() {
-        this.addressBooks = [];
-    }
-
-    createAddressBook = name => {
-        if (this.addressBooks.some(book => book.name === name)) {
-            throw new Error("Address Book with this name already exists!");
-        }
-        let newBook = new AddressBook(name);
-        this.addressBooks.push(newBook);
-    };
-
-    getAddressBook = name => this.addressBooks.find(book => book.name === name);
-}
-
-// Employee Wage Problem using Arrow Functions and Objects
-const EMP_RATE_PER_HOUR = 20;
-const FULL_DAY_HOURS = 8;
-const PART_TIME_HOURS = 4;
-const WORKING_DAYS = 20;
-const MAX_HOURS = 160;
-
-const getWorkHours = (attendance) => attendance === 'FullTime' ? FULL_DAY_HOURS : attendance === 'PartTime' ? PART_TIME_HOURS : 0;
-
-let dailyWages = [];
-let totalHours = 0;
-let totalWage = 0;
-
-for (let day = 1; day <= WORKING_DAYS && totalHours <= MAX_HOURS; day++) {
-    let attendance = Math.random() < 0.5 ? 'FullTime' : 'PartTime';
-    let workHours = getWorkHours(attendance);
-    totalHours += workHours;
-    let dailyWage = workHours * EMP_RATE_PER_HOUR;
-    dailyWages.push({ day, workHours, dailyWage });
-    totalWage += dailyWage;
-}
-
-console.log("Total Wage: ", totalWage);
-console.log("Daily Wages: ", dailyWages);
-console.log("Days with Full Time Wage: ", dailyWages.filter(wage => wage.dailyWage === FULL_DAY_HOURS * EMP_RATE_PER_HOUR));
-console.log("First Full Time Wage Day: ", dailyWages.find(wage => wage.dailyWage === FULL_DAY_HOURS * EMP_RATE_PER_HOUR));
-console.log("All are Full Time Wages: ", dailyWages.every(wage => wage.dailyWage === FULL_DAY_HOURS * EMP_RATE_PER_HOUR));
-console.log("Any Part Time Wage: ", dailyWages.some(wage => wage.dailyWage === PART_TIME_HOURS * EMP_RATE_PER_HOUR));
-console.log("Total Days Worked: ", dailyWages.length);
-
-// Usage Example
+// Example Usage
 try {
-    let system = new AddressBookSystem();
-    system.createAddressBook("Personal");
-    let personalBook = system.getAddressBook("Personal");
-    let contact1 = new Contact("John", "Doe", "123 Main St", "New York", "New York", "10001", "1234567890", "john.doe@example.com");
-    personalBook.addContact(contact1);
-    personalBook.sortContactsByName();
+    let employee1 = new Employee(101, 50000, 'M', '2024-02-15');
+    let employee2 = new Employee(-5, 20000, 'X', '2026-01-01'); // Will throw error
 } catch (error) {
     console.error(error.message);
 }
