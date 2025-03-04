@@ -5,6 +5,7 @@ const IS_FULL_TIME = 2;
 const PART_TIME_HOURS = 4;
 const FULL_TIME_HOURS = 8;
 const WAGE_PER_HOUR = 20;
+const WORKING_DAYS_IN_MONTH = 20;
 
 /**
  * Function to get working hours based on employee type
@@ -22,9 +23,17 @@ function getWorkHours(empCheck) {
     }
 }
 
-// Generate a random work type (0, 1, or 2)
-let empCheck = Math.floor(Math.random() * 3); // Generates 0, 1, or 2
-let empHours = getWorkHours(empCheck); // Get work hours
-let empWage = empHours * WAGE_PER_HOUR; // Calculate daily wage
+// Variables to store total wage and track each day's wage
+let totalEmpWage = 0;
 
-console.log(`Employee worked for ${empHours} hours and earned $${empWage}`);
+// Using a for loop to calculate wages for 20 working days
+for (let day = 1; day <= WORKING_DAYS_IN_MONTH; day++) {
+    let empCheck = Math.floor(Math.random() * 3); // Generates 0, 1, or 2
+    let empHours = getWorkHours(empCheck);
+    let dailyWage = empHours * WAGE_PER_HOUR;
+    totalEmpWage += dailyWage;
+    console.log(`Day ${day}: Employee worked for ${empHours} hours and earned $${dailyWage}`);
+}
+
+// Display total wage for the month
+console.log(`Total Wage for ${WORKING_DAYS_IN_MONTH} days: $${totalEmpWage}`);
