@@ -1,55 +1,100 @@
-// Constants for employee work types
-const IS_ABSENT = 0;
-const IS_PART_TIME = 1;
-const IS_FULL_TIME = 2;
-const PART_TIME_HOURS = 4;
-const FULL_TIME_HOURS = 8;
-const WAGE_PER_HOUR = 20;
-const MAX_WORKING_DAYS = 20;
-const MAX_WORKING_HOURS = 160;
+class EmployeePayroll {
+    constructor(id, name, gender, startDate, hoursWorked, wageEarned) {
+        this.id = this.validateId(id);          // Validate Employee ID
+        this.name = this.validateName(name);    // Validate Name
+        this.gender = this.validateGender(gender); // Validate Gender
+        this.startDate = this.validateStartDate(startDate); // Validate Start Date
+        this.hoursWorked = this.validatePositiveNumber(hoursWorked, "Hours Worked");
+        this.wageEarned = this.validatePositiveNumber(wageEarned, "Wage Earned");
+    }
 
-/**
- * Function to get working hours based on employee type
- * @param {number} empCheck - Randomly generated work type (0, 1, or 2)
- * @returns {number} - Work hours based on the employee type
- */
-function getWorkHours(empCheck) {
-    switch (empCheck) {
-        case IS_PART_TIME:
-            return PART_TIME_HOURS;
-        case IS_FULL_TIME:
-            return FULL_TIME_HOURS;
-        default:
-            return 0; // No work
+    // Employee ID and Salary Validation
+    validateId(id) {
+        try {
+            if (!Number.isInteger(id) || id <= 0) {
+                throw new Error(`Invalid Employee ID: ${id}. Must be a positive non-zero integer.`);
+            }
+            return id;
+        } catch (error) {
+            console.error(error.message);
+            return null;
+        }
+    }
+
+    validatePositiveNumber(value, fieldName) {
+        try {
+            if (typeof value !== "number" || value <= 0) {
+                throw new Error(`Invalid ${fieldName}: ${value}. Must be a positive number.`);
+            }
+            return value;
+        } catch (error) {
+            console.error(error.message);
+            return null;
+        }
+    }
+
+    // Name Validation Function
+    validateName(name) {
+        const nameRegex = /^[A-Z][a-zA-Z]{2,}$/;
+        try {
+            if (!nameRegex.test(name)) {
+                throw new Error(`Invalid Name: "${name}". Name must start with a capital letter and have at least 3 characters.`);
+            }
+            return name;
+        } catch (error) {
+            console.error(error.message);
+            return null;
+        }
+    }
+
+    // Gender Validation (Only 'M' or 'F' allowed)
+    validateGender(gender) {
+        const genderRegex = /^[MF]$/;
+        try {
+            if (!genderRegex.test(gender)) {
+                throw new Error(`Invalid Gender: "${gender}". Must be 'M' or 'F'.`);
+            }
+            return gender;
+        } catch (error) {
+            console.error(error.message);
+            return null;
+        }
+    }
+
+    // Start Date Validation (Must not be in the future)
+    validateStartDate(date) {
+        try {
+            let parsedDate = new Date(date);
+            let today = new Date();
+            if (isNaN(parsedDate.getTime()) || parsedDate > today) {
+                throw new Error(`Invalid Start Date: "${date}". Cannot be a future date.`);
+            }
+            return parsedDate;
+        } catch (error) {
+            console.error(error.message);
+            return null;
+        }
+    }
+
+    // Method to display employee details
+    getDetails() {
+        return `ID: ${this.id}, Name: ${this.name}, Gender: ${this.gender}, Start Date: ${this.startDate ? this.startDate.toDateString() : "Invalid Date"}, Hours: ${this.hoursWorked}, Wage: $${this.wageEarned}`;
     }
 }
 
-// Variables to track total working hours, days, and wages
-let totalWorkingHours = 0;
-let totalWorkingDays = 0;
-let dailyWageMap = new Map(); // Map to store day-wise wage
+// Array to store employee records
+let employeePayrollData = [];
 
-// Loop until max working hours (160) or max days (20) is reached
-while (totalWorkingDays < MAX_WORKING_DAYS && totalWorkingHours < MAX_WORKING_HOURS) {
-    let empCheck = Math.floor(Math.random() * 3); // Generates 0, 1, or 2
-    let empHours = getWorkHours(empCheck);
-    
-    // Check if adding current hours exceeds max allowed hours
-    if (totalWorkingHours + empHours > MAX_WORKING_HOURS) {
-        empHours = MAX_WORKING_HOURS - totalWorkingHours; // Adjust to max limit
+employeePayrollData.push(new EmployeePayroll(1, "Alice", "F", "2024-02-15", 160, 3200));
+employeePayrollData.push(new EmployeePayroll(-2, "Bob", "M", "2024-02-15", 120, 2400));  // Invalid ID
+employeePayrollData.push(new EmployeePayroll(3, "Charlie", "X", "2024-01-10", 140, 2800)); // Invalid Gender
+employeePayrollData.push(new EmployeePayroll(4, "Diana", "F", "2025-03-05", 100, 2000)); // Future Date
+employeePayrollData.push(new EmployeePayroll(5, "Eve", "F", "2024-02-01", 0, 2000)); // Invalid Hours Worked
+
+// **Display Valid Employee Payroll Data**
+console.log("\nValid Employee Payroll Details:");
+employeePayrollData.forEach(emp => {
+    if (emp.id && emp.name && emp.gender && emp.startDate && emp.hoursWorked && emp.wageEarned) {
+        console.log(emp.getDetails());
     }
-
-    totalWorkingHours += empHours;
-    totalWorkingDays++;
-    let dailyWage = empHours * WAGE_PER_HOUR;
-    dailyWageMap.set(totalWorkingDays, dailyWage); // Store in map (key: day, value: wage)
-}
-
-// **Compute total wage using Map and reduce**
-let totalEmpWage = Array.from(dailyWageMap.values()).reduce((total, wage) => total + wage, 0);
-
-// **Print results**
-console.log("\nDay-wise Wage Map:");
-console.log(dailyWageMap);
-
-console.log(`\nTotal Wage Earned: $${totalEmpWage}`);
+});
