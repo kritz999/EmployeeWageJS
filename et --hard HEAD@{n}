@@ -1,0 +1,44 @@
+[33mbde0380[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mUC7_OperationsUsingArrays[m[33m, [m[1;31morigin/UC7_OperationsUsingArrays[m[33m)[m HEAD@{0}: checkout: moving from UC7_OperationsUsingArrays to UC7_OperationsUsingArrays
+[33mbde0380[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mUC7_OperationsUsingArrays[m[33m, [m[1;31morigin/UC7_OperationsUsingArrays[m[33m)[m HEAD@{1}: commit: Added operations using array helper functions
+[33m178d215[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/UC6_ArrayDailyWages[m[33m, [m[1;32mmain[m[33m, [m[1;32mUC6_ArrayDailyWages[m[33m)[m HEAD@{2}: checkout: moving from main to UC7_OperationsUsingArrays
+[33m178d215[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/UC6_ArrayDailyWages[m[33m, [m[1;32mmain[m[33m, [m[1;32mUC6_ArrayDailyWages[m[33m)[m HEAD@{3}: checkout: moving from UC7_OperationsUsingArrays to main
+[33m178d215[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/UC6_ArrayDailyWages[m[33m, [m[1;32mmain[m[33m, [m[1;32mUC6_ArrayDailyWages[m[33m)[m HEAD@{4}: checkout: moving from main to UC7_OperationsUsingArrays
+[33m178d215[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/UC6_ArrayDailyWages[m[33m, [m[1;32mmain[m[33m, [m[1;32mUC6_ArrayDailyWages[m[33m)[m HEAD@{5}: merge UC6_ArrayDailyWages: Fast-forward
+[33m1dfa939[m[33m ([m[1;31morigin/UC5_TotalWorkingHours[m[33m, [m[1;32mUC5_TotalWorkingHours[m[33m)[m HEAD@{6}: checkout: moving from UC6_ArrayDailyWages to main
+[33m178d215[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/UC6_ArrayDailyWages[m[33m, [m[1;32mmain[m[33m, [m[1;32mUC6_ArrayDailyWages[m[33m)[m HEAD@{7}: commit: [kritika]add : store daily wages along with total wages
+[33m1dfa939[m[33m ([m[1;31morigin/UC5_TotalWorkingHours[m[33m, [m[1;32mUC5_TotalWorkingHours[m[33m)[m HEAD@{8}: checkout: moving from main to UC6_ArrayDailyWages
+[33m1dfa939[m[33m ([m[1;31morigin/UC5_TotalWorkingHours[m[33m, [m[1;32mUC5_TotalWorkingHours[m[33m)[m HEAD@{9}: merge UC5_TotalWorkingHours: Fast-forward
+[33md80a6d8[m[33m ([m[1;31morigin/UC4_CalculateWagesForAMonth[m[33m, [m[1;32mUC4_CalculateWagesForAMonth[m[33m)[m HEAD@{10}: checkout: moving from UC5_TotalWorkingHours to main
+[33m1dfa939[m[33m ([m[1;31morigin/UC5_TotalWorkingHours[m[33m, [m[1;32mUC5_TotalWorkingHours[m[33m)[m HEAD@{11}: commit: [kritika] add: calculate wages till condition
+[33md80a6d8[m[33m ([m[1;31morigin/UC4_CalculateWagesForAMonth[m[33m, [m[1;32mUC4_CalculateWagesForAMonth[m[33m)[m HEAD@{12}: checkout: moving from main to UC5_TotalWorkingHours
+[33md80a6d8[m[33m ([m[1;31morigin/UC4_CalculateWagesForAMonth[m[33m, [m[1;32mUC4_CalculateWagesForAMonth[m[33m)[m HEAD@{13}: checkout: moving from UC4_CalculateWagesForAMonth to main
+[33md80a6d8[m[33m ([m[1;31morigin/UC4_CalculateWagesForAMonth[m[33m, [m[1;32mUC4_CalculateWagesForAMonth[m[33m)[m HEAD@{14}: checkout: moving from main to UC4_CalculateWagesForAMonth
+[33md80a6d8[m[33m ([m[1;31morigin/UC4_CalculateWagesForAMonth[m[33m, [m[1;32mUC4_CalculateWagesForAMonth[m[33m)[m HEAD@{15}: commit: [kritika] add :calculate wage for a month
+[33mc02c4a0[m[33m ([m[1;31morigin/UC3_FunctionWorkingHours[m[33m, [m[1;32mUC3_FunctionWorkingHours[m[33m)[m HEAD@{16}: merge UC3_FunctionWorkingHours: Fast-forward
+[33m9e34b8d[m[33m ([m[1;31morigin/UC2_CalculateDailyWage[m[33m, [m[1;32mUC2_CalculateDailyWage[m[33m)[m HEAD@{17}: checkout: moving from UC3_FunctionWorkingHours to main
+[33mc02c4a0[m[33m ([m[1;31morigin/UC3_FunctionWorkingHours[m[33m, [m[1;32mUC3_FunctionWorkingHours[m[33m)[m HEAD@{18}: commit: [kritika] add:Function to check the working hours
+[33m9e34b8d[m[33m ([m[1;31morigin/UC2_CalculateDailyWage[m[33m, [m[1;32mUC2_CalculateDailyWage[m[33m)[m HEAD@{19}: checkout: moving from main to UC3_FunctionWorkingHours
+[33m9e34b8d[m[33m ([m[1;31morigin/UC2_CalculateDailyWage[m[33m, [m[1;32mUC2_CalculateDailyWage[m[33m)[m HEAD@{20}: merge UC2_CalculateDailyWage: Fast-forward
+[33m97196c4[m HEAD@{21}: checkout: moving from UC2_CalculateDailyWage to main
+[33m9e34b8d[m[33m ([m[1;31morigin/UC2_CalculateDailyWage[m[33m, [m[1;32mUC2_CalculateDailyWage[m[33m)[m HEAD@{22}: commit: [kritika] add: calculate daily wages
+[33m97196c4[m HEAD@{23}: checkout: moving from main to UC2_CalculateDailyWage
+[33m97196c4[m HEAD@{24}: checkout: moving from main to main
+[33m97196c4[m HEAD@{25}: merge UC1_EmployeeisP/A: Merge made by the 'ort' strategy.
+[33md3ba3c8[m HEAD@{26}: pull origin main: Fast-forward
+[33m2e7761b[m[33m ([m[1;31morigin/UC2_CheckEmployeeIdSalary[m[33m)[m HEAD@{27}: checkout: moving from UC1_EmployeeisP/A to main
+[33m892ed61[m[33m ([m[1;31morigin/UC1_EmployeeisP/A[m[33m, [m[1;32mUC1_EmployeeisP/A[m[33m)[m HEAD@{28}: commit: [kritika]add:check employee present or absent
+[33m2e7761b[m[33m ([m[1;31morigin/UC2_CheckEmployeeIdSalary[m[33m)[m HEAD@{29}: checkout: moving from main to UC1_EmployeeisP/A
+[33m2e7761b[m[33m ([m[1;31morigin/UC2_CheckEmployeeIdSalary[m[33m)[m HEAD@{30}: checkout: moving from main to main
+[33m2e7761b[m[33m ([m[1;31morigin/UC2_CheckEmployeeIdSalary[m[33m)[m HEAD@{31}: checkout: moving from UC1_PostalIndexNumber to main
+[33md00eadc[m[33m ([m[1;31morigin/UC1_PostalIndexNumber[m[33m)[m HEAD@{32}: commit: [kritika] add:valid pin code
+[33m2e7761b[m[33m ([m[1;31morigin/UC2_CheckEmployeeIdSalary[m[33m)[m HEAD@{33}: checkout: moving from main to UC1_PostalIndexNumber
+[33m2e7761b[m[33m ([m[1;31morigin/UC2_CheckEmployeeIdSalary[m[33m)[m HEAD@{34}: merge UC2_CheckEmployeeIdSalary: Fast-forward
+[33mc938ecd[m[33m ([m[1;31morigin/UC1_EmployeeWage[m[33m)[m HEAD@{35}: checkout: moving from UC2_CheckEmployeeIdSalary to main
+[33m2e7761b[m[33m ([m[1;31morigin/UC2_CheckEmployeeIdSalary[m[33m)[m HEAD@{36}: commit: [kritika]add: check employee id and salary
+[33mc938ecd[m[33m ([m[1;31morigin/UC1_EmployeeWage[m[33m)[m HEAD@{37}: checkout: moving from main to UC2_CheckEmployeeIdSalary
+[33mc938ecd[m[33m ([m[1;31morigin/UC1_EmployeeWage[m[33m)[m HEAD@{38}: merge UC1_EmployeeWage: Fast-forward
+[33me377ba3[m[33m ([m[1;32mmaster[m[33m)[m HEAD@{39}: checkout: moving from UC1_EmployeeWage to main
+[33mc938ecd[m[33m ([m[1;31morigin/UC1_EmployeeWage[m[33m)[m HEAD@{40}: commit: [kritika]add: employee wages using object helper and arrow function
+[33me377ba3[m[33m ([m[1;32mmaster[m[33m)[m HEAD@{41}: checkout: moving from main to UC1_EmployeeWage
+[33me377ba3[m[33m ([m[1;32mmaster[m[33m)[m HEAD@{42}: checkout: moving from master to main
+[33me377ba3[m[33m ([m[1;32mmaster[m[33m)[m HEAD@{43}: commit (initial): employee wage started
