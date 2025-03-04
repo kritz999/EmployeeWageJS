@@ -24,10 +24,10 @@ function getWorkHours(empCheck) {
     }
 }
 
-// Variables to track total working hours and days
+// Variables to track total working hours, days, and wages
 let totalWorkingHours = 0;
 let totalWorkingDays = 0;
-let totalEmpWage = 0;
+let dailyWageArray = []; // Array to store daily wages
 
 // Loop until max working hours (160) or max days (20) is reached
 while (totalWorkingDays < MAX_WORKING_DAYS && totalWorkingHours < MAX_WORKING_HOURS) {
@@ -42,12 +42,16 @@ while (totalWorkingDays < MAX_WORKING_DAYS && totalWorkingHours < MAX_WORKING_HO
     totalWorkingHours += empHours;
     totalWorkingDays++;
     let dailyWage = empHours * WAGE_PER_HOUR;
-    totalEmpWage += dailyWage;
+    dailyWageArray.push(dailyWage); // Store daily wage in array
 
     console.log(`Day ${totalWorkingDays}: Worked ${empHours} hours, Earned $${dailyWage}`);
 }
+
+// Calculate total wage from the array
+let totalEmpWage = dailyWageArray.reduce((total, wage) => total + wage, 0);
 
 // Display final results
 console.log(`\nTotal Days Worked: ${totalWorkingDays}`);
 console.log(`Total Hours Worked: ${totalWorkingHours}`);
 console.log(`Total Wage Earned: $${totalEmpWage}`);
+console.log(`Daily Wages Stored in Array:`, dailyWageArray);
